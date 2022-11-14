@@ -7,8 +7,6 @@ import it.unibo.mvc.api.DrawNumberController;
 import it.unibo.mvc.api.DrawNumberView;
 import it.unibo.mvc.controller.DrawNumberControllerImpl;
 import it.unibo.mvc.model.DrawNumberImpl;
-import it.unibo.mvc.view.DrawNumberSwingView;
-import it.unibo.mvc.view.DrawNumberTerminalView;
 
 /**
  * Application entry-point.
@@ -36,8 +34,6 @@ public final class LaunchApp {
     IllegalArgumentException {
         final var model = new DrawNumberImpl();
         final DrawNumberController app = new DrawNumberControllerImpl(model);
-        /*app.addView(new DrawNumberSwingView());
-        app.addView(new DrawNumberTerminalView());*/
         for (final var viewType : List.of("Terminal", "Swing")) {
             final var viewName = Class.forName("it.unibo.mvc.view.DrawNumber" + viewType + "View");
             for ( int i = 0; i < 3; i++) {
